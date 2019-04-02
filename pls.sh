@@ -11,4 +11,12 @@ done
 for i in {1..3}
 do
  scp -i key.pem authorized_keys patel@node$i:$HOME/.ssh/authorized_keys
+ scp -i key.pem pre-req.sh patel@node$i:$HOME/  #option 2
+ ssh patel@node$i 'chmod a+x pre-req.sh'		#option 2
+done
+
+for i in {1..3}
+do
+ #ssh patel@node$i 'bash -s' < pre-req.sh   #option 1
+ ssh patel@node$i 'sudo bash pre-req.sh'    #option 2
 done
