@@ -1,4 +1,4 @@
-
+#!/bin/bash
 yum install wget -y 
 yum install httpd -y 
 sudo systemctl enable httpd.service
