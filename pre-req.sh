@@ -10,8 +10,10 @@ sysctl -w net.ipv6.conf.default.disable_ipv6=1
 service tuned stop
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/sysconfig/selinux
 sed -i 's/SELINUX=permissive/SELINUX=disabled/' /etc/sysconfig/selinux
-
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
+sed -i 's/SELINUX=permissive/SELINUX=disabled/' /etc/selinux/config
 setenforce 0
+
 sudo su -c 'cat >>/etc/sysctl.conf <<EOL
 net.ipv6.conf.all.disable_ipv6 =1
 net.ipv6.conf.default.disable_ipv6 =1
