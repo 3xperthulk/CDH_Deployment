@@ -15,8 +15,8 @@ do
  ssh patel@node$i 'chmod a+x pre-req.sh'		#option 2
 done
 
-rm ~/authorized_keys
-rm key.pem
+sudo rm ~/authorized_keys
+sudo rm key.pem
 
 for ((i=3; i>=1; i--))
 do
