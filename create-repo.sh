@@ -40,7 +40,7 @@ done
 
 for i in {2..3}
 do
- ssh patel@node$i "sudo cp /etc/yum.repos.d/AMBARI-2.2.2.0.repo /etc/yum.repos.d/HDP.repo /etc/yum.repos.d/HDP-UTILS-1.1.0.20.repo /etc/yum.repos.d/"
+ ssh patel@node$i "sudo cp AMBARI-2.2.2.0.repo HDP.repo HDP-UTILS-1.1.0.20.repo /etc/yum.repos.d/"
 done
 
 curl -s -o /dev/null -I -w "%{http_code}" http://`hostname`/HDP-UTILS-1.1.0.20/repos/centos7/
