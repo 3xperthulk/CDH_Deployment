@@ -31,5 +31,5 @@ exit 0
 EOL'
 
 sudo su -c 'cat >>/etc/sysctl.conf <<EOL
-'vm.swappiness=0'
+'vm.swappiness=1'
 EOL'
