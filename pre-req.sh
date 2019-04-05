@@ -33,3 +33,5 @@ EOL'
 sudo su -c 'cat >>/etc/sysctl.conf <<EOL
 'vm.swappiness=1'
 EOL'
+
+reboot
