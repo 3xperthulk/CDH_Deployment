@@ -15,7 +15,10 @@ do
  ssh patel@node$i 'chmod a+x pre-req.sh'		#option 2
 done
 
-for i in {1..3}
+
+
+
+for ((i=3; i>=1; i--))
 do
  #ssh patel@node$i 'bash -s' < pre-req.sh   #option 1
  ssh patel@node$i 'sudo bash pre-req.sh'    #option 2
