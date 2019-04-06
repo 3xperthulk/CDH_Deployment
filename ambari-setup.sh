@@ -1,5 +1,6 @@
 #!/bin/bash
 wget -nv http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.2.2.0/ambari.repo -O /etc/yum.repos.d/ambari.repo
+cp -rf /var/www/html/HDP/centos7/2.x/updates/2.4.2.0/repodata /var/www/html/HDP/repodata 
 yum install ambari-server -y
 
 PGPASSWORD=AMBARIPASSWORD psql -f /var/lib/ambari-server/resources/Ambari-DDL-Postgres-CREATE.sql  -U ambariuser -d ambaridatabase
