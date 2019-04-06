@@ -12,6 +12,7 @@ for i in {1..3}
 do
  ssh node$i "sudo yum install ambari-agent -y"
  ssh node$i "sudo su -c 'cat >>/etc/ambari-agent/conf/ambari-agent.ini <<EOL
+
 			[server]
 			hostname=node1
 			url_port=8440
