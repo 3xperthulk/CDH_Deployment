@@ -3,6 +3,9 @@
 yum localinstall https://download.postgresql.org/pub/repos/yum/9.3/redhat/rhel-7-x86_64/pgdg-redhat93-9.3-2.noarch.rpm -y
 yum list postgres* -y
 yum install postgresql93-server.x86_64 -y
+yum install postgresql-jdbc -y
+chmod 644 /usr/share/java/postgresql-jdbc.jar
+
 /usr/pgsql-9.3/bin/postgresql93-setup initdb
 systemctl enable postgresql-9.3.service
 systemctl start postgresql-9.3.service
