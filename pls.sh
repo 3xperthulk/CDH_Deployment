@@ -42,4 +42,9 @@ do
  ssh patel@node$i "sudo rpm -ivh ~/jdk-8u131-linux-x64.rpm"
  ssh patel@node$i "sudo rpm -ivh ~/MySQL-server-5.6.43-1.el7.x86_64.rpm"
  ssh patel@node$i "sudo rpm -ivh ~/MySQL-client-5.6.43-1.el7.x86_64.rpm" 
+ 
+ sudo su -c 'cat >>/etc/profile.d/java.sh <<EOL
+			JAVA_HOME="/usr/java/latest"
+			EOL'
+source /etc/profile.d/java.sh
 done
