@@ -49,3 +49,6 @@ do
  #ssh patel@node$i 'bash -s' < pre-req.sh   #option 1
  ssh patel@node$i 'sudo bash pre-req.sh'    #option 2
 done
+
+#/etc/amabri-agent/conf/ambari-agent.ini
+#force_https_protocol=PROTOCOL_TLSv1_2
