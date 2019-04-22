@@ -38,9 +38,9 @@ done
 for i in {1..3}
 do
  ssh patel@node$i "sudo rpm -ivh ~/jdk-8u131-linux-x64.rpm"
- sudo su -c "cat >>/etc/profile.d/java.sh <<EOL
-			JAVA_HOME='/usr/java/latest'
-			EOL"
+ sudo su -c 'cat >>/etc/profile.d/java.sh <<EOL
+ JAVA_HOME=/usr/java/latest
+ EOL'
 source 	/etc/profile.d/java.sh
 done
 
