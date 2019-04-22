@@ -2,11 +2,13 @@
 
 sudo wget -nv  http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.6.2.0/ambari.repo -O /etc/yum.repos.d/ambari.repo
 
- 
+systemctl stop firewalld
+systemctl disable firewalld
+
 chkconfig iptables off
 chkconfig ip6tables off
 chkconfig ntpd on
-sysctl vm.swappiness=1
+
 echo never > /sys/kernel/mm/transparent_hugepage/defrag
 echo never > /sys/kernel/mm/transparent_hugepage/enabled
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 
@@ -28,14 +30,17 @@ sudo su -c 'cat >>/etc/rc.local <<EOL
 if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
 echo never > /sys/kernel/mm/transparent_hugepage/enabled
 fi
+
 if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
 echo never > /sys/kernel/mm/transparent_hugepage/defrag
 fi
 exit 0
 EOL'
 
+sysctl vm.swappiness=1
 sudo su -c 'cat >>/etc/sysctl.conf <<EOL
 'vm.swappiness=1'
 EOL'
+
 sudo yum install ambari-server -y
 reboot
