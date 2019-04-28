@@ -15,8 +15,8 @@ done
 for i in {1..3}
 do
  scp -i key.pem authorized_keys $username@node$i:$HOME/.ssh/authorized_keys
- scp -i key.pem pre-req.sh $username@node$i:$HOME/  #option 2
- ssh $username@node$i 'chmod a+x pre-req.sh'		#option 2
+ scp -i key.pem pre-req.sh cdh-deployment.sh $username@node$i:$HOME/  #option 2
+ ssh $username@node$i 'chmod a+x pre-req.sh cdh-deployment.sh'		#option 2
 done
 
 sudo rm ~/authorized_keys
@@ -24,5 +24,6 @@ sudo rm key.pem
 
 for ((i=3; i>=1; i--))
 do
+ ssh $username@node$i 'cdh-deployment.sh'
  ssh $username@node$i 'sudo bash pre-req.sh'  
 done
