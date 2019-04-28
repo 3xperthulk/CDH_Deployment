@@ -1,18 +1,20 @@
 #!/bin/bash
 
+#username should be provided as command line parameter
+username=$1
 cat $HOME/.ssh/authorized_keys >> authorized_keys
 for i in {1..3}
 do
- ssh -i key.pem patel@node$i "echo -e 'y\n' | ssh-keygen -t rsa -P '' -f $HOME/.ssh/id_rsa"
- ssh -i key.pem patel@node$i 'touch ~/.ssh/config; echo -e \ "host *\n StrictHostKeyChecking no\n UserKnownHostsFile=/dev/null" \ > ~/.ssh/config; chmod 644 ~/.ssh/config'
- ssh -i key.pem patel@node$i 'cat $HOME/.ssh/id_rsa.pub' >> authorized_keys
+ ssh -i key.pem $username@node$i "echo -e 'y\n' | ssh-keygen -t rsa -P '' -f $HOME/.ssh/id_rsa"
+ ssh -i key.pem $username@node$i 'touch ~/.ssh/config; echo -e \ "host *\n StrictHostKeyChecking no\n UserKnownHostsFile=/dev/null" \ > ~/.ssh/config; chmod 644 ~/.ssh/config'
+ ssh -i key.pem $username@node$i 'cat $HOME/.ssh/id_rsa.pub' >> authorized_keys
 done
 
 for i in {1..3}
 do
- scp -i key.pem authorized_keys patel@node$i:$HOME/.ssh/authorized_keys
- scp -i key.pem pre-req.sh patel@node$i:$HOME/  #option 2
- ssh patel@node$i 'chmod a+x pre-req.sh'		#option 2
+ scp -i key.pem authorized_keys $username@node$i:$HOME/.ssh/authorized_keys
+ scp -i key.pem pre-req.sh $username@node$i:$HOME/  #option 2
+ ssh $username@node$i 'chmod a+x pre-req.sh'		#option 2
 done
 
 sudo rm ~/authorized_keys
@@ -32,12 +34,12 @@ sudo systemctl enable mysqld.service
 
 for i in {2..3}
 do
- scp jdk-8u131-linux-x64.rpm patel@node$i:~/ 
+ scp jdk-8u131-linux-x64.rpm $username@node$i:~/ 
 done
 
 for i in {1..3}
 do
- ssh patel@node$i "sudo rpm -ivh ~/jdk-8u131-linux-x64.rpm"
+ ssh $username@node$i "sudo rpm -ivh ~/jdk-8u131-linux-x64.rpm"
  sudo su -c 'cat >>/etc/profile.d/java.sh <<EOL
  JAVA_HOME=/usr/java/latest
  EOL'
@@ -46,9 +48,5 @@ done
 
 for ((i=3; i>=1; i--))
 do
- #ssh patel@node$i 'bash -s' < pre-req.sh   #option 1
- ssh patel@node$i 'sudo bash pre-req.sh'    #option 2
+ ssh $username@node$i 'sudo bash pre-req.sh'  
 done
-
-#/etc/amabri-agent/conf/ambari-agent.ini
-#force_https_protocol=PROTOCOL_TLSv1_2
