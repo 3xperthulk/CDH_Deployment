@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sudo wget https://archive.cloudera.com/cm5/installer/latest/cloudera-manager-installer.bin
-
 systemctl stop firewalld
 systemctl disable firewalld
 
