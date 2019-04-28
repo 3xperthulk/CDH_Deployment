@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo wget -nv  http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.6.2.0/ambari.repo -O /etc/yum.repos.d/ambari.repo
+sudo wget https://archive.cloudera.com/cm5/installer/latest/cloudera-manager-installer.bin
 
 systemctl stop firewalld
 systemctl disable firewalld
@@ -41,6 +41,4 @@ sysctl vm.swappiness=1
 sudo su -c 'cat >>/etc/sysctl.conf <<EOL
 'vm.swappiness=1'
 EOL'
-
-sudo yum install ambari-server -y
 reboot
