@@ -26,12 +26,12 @@ sudo wget  -O $HOME/jdk-8u131-linux-x64.rpm --no-cookies --no-check-certificate 
 
 for i in {2..3}
 do
- scp jdk-8u131-linux-x64.rpm $username@node$i:~/ 
+ scp $HOME/jdk-8u131-linux-x64.rpm $username@node$i:~/ 
 done
 
 for ((i=3; i>=1; i--))
 do 
- ssh $username@node$i 'sudo bash pre-req.sh'  
+ ssh $username@node$i 'sudo bash pre-req.sh $username'  
 done
 
 # Must run manually since system reboots before this
