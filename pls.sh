@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo yum install wget -y
+#sudo yum install wget -y
 
 #username should be provided as command line parameter
 username=$1
@@ -23,7 +23,9 @@ sudo rm ~/authorized_keys
 sudo rm key.pem
 
 for ((i=3; i>=1; i--))
-do
- ssh $username@node$i 'cdh-deployment.sh'
+do 
  ssh $username@node$i 'sudo bash pre-req.sh'  
 done
+
+# Must run manually since system reboots before this
+bash $HOME/Hadoop-Configurations/cdh-deployment.sh
