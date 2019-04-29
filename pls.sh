@@ -29,6 +29,15 @@ do
  scp $HOME/jdk-8u131-linux-x64.rpm $username@node$i:~/ 
 done
 
+for i in {1..3}
+do
+ ssh $username@node$i "sudo rpm -ivh ~/jdk-8u131-linux-x64.rpm"
+ ssh $username@node$i "sudo su -c 'cat >>/etc/profile.d/java.sh <<EOL
+ JAVA_HOME=/usr/java/latest
+ EOL'"
+ ssh $username@node$i "source 	/etc/profile.d/java.sh"
+done
+
 for ((i=3; i>=1; i--))
 do 
  ssh $username@node$i 'sudo bash pre-req.sh $username'  
