@@ -8,6 +8,8 @@
 #sudo systemctl start mysqld
 #sudo systemctl enable mysqld.service
 
+username=$1
+
 ssh $username@node$i "sudo rpm -ivh ~/jdk-8u131-linux-x64.rpm"
 sudo su -c 'cat >>/etc/profile.d/java.sh <<EOL
 JAVA_HOME=/usr/java/latest
