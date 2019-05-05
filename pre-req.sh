@@ -7,6 +7,7 @@
 #sudo yum install mysql-community-server -y
 #sudo systemctl start mysqld
 #sudo systemctl enable mysqld.service
+#sudo mysql_secure_installation
 
 
 
