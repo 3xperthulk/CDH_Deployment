@@ -52,6 +52,8 @@ done
 
 #/etc/amabri-agent/conf/ambari-agent.ini
 #force_https_protocol=PROTOCOL_TLSv1_2
+#sed -i '8iforce_https_protocol=PROTOCOL_TLSv1_2\n' /etc/amabri-agent/conf/ambari-agent.ini
+
 ##create database hive DEFAULT CHARACTER SET utf8;
 #grant all on hive.* TO 'hive'@'%' IDENTIFIED BY 'hive';
 #sudo yum install unzip -y
@@ -61,3 +63,4 @@ done
 ##put this in the /usr/share/java 
 #sudo mv mysql-connector-java-5.1.47.jar /usr/share/java/mysql-connector-java.jar
 #sudo ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connector-java.jar
+
