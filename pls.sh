@@ -49,10 +49,11 @@ do
  #ssh patel@node$i 'bash -s' < pre-req.sh   #option 1
  ssh patel@node$i 'sudo bash pre-req.sh'    #option 2
 done
-
+##Configure /etc/hosts
 #/etc/amabri-agent/conf/ambari-agent.ini
 #force_https_protocol=PROTOCOL_TLSv1_2
-#sed -i '8iforce_https_protocol=PROTOCOL_TLSv1_2\n' /etc/amabri-agent/conf/ambari-agent.ini
+#sed -i '8iforce_https_protocol=PROTOCOL_TLSv1_2\n' /etc/ambari-agent/conf/ambari-agent.ini
+#sudo sed -i 's/verify=platform_default/verify=disable/' /etc/python/cert-verification.cfg
 
 ##create database hive DEFAULT CHARACTER SET utf8;
 #grant all on hive.* TO 'hive'@'%' IDENTIFIED BY 'hive';
