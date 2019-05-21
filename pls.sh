@@ -2,7 +2,7 @@
 
 #####################################################
 ##        Author: Mehraj Patel     ##
-#### note - Dont remove this section else this script won't run ####
+#### note - Dont remove this section else this script won't run ;) ####
 #####################################################
 
 
