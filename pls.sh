@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#####################################################
+##        Author: Mehraj Patel     ##
+#### note - Dont remove this section else this script won't run ####
+#####################################################
+
+
 #sudo yum install wget -y
 
 #username should be provided as command line parameter
