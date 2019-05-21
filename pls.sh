@@ -34,8 +34,8 @@ done
 for i in `cat $HOME/hosts`
 do
  ssh $username@$i "sudo rpm -ivh ~/jdk-8u131-linux-x64.rpm"
- ssh $username@$i "sudo su -c 'cat JAVA_HOME=/usr/java/latest >>/etc/profile.d/java.sh'"
- ssh $username@$i "source 	/etc/profile.d/java.sh"
+ ssh $username@$i "sudo cat 'echo "JAVA_HOME=/usr/java/latest" | sudo tee -a /etc/profile.d/java.sh"
+ ssh $username@$i "source /etc/profile.d/java.sh"
 done
 
 for i in `tac $HOME/hosts`
