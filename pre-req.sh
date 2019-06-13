@@ -41,7 +41,7 @@ echo never > /sys/kernel/mm/transparent_hugepage/enabled
 fi
 
 if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
-echo never > /sys/kernel/mm/transparent_hugepage/defrag
+echo never > /sys/kernel/mm/transparent_hugepage/defrag 
 fi
 exit 0
 EOL'
