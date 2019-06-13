@@ -51,4 +51,4 @@ do
 done
 
 # Must run manually since system reboots before this
-bash $HOME/Hadoop-Configurations/cdh-deployment.sh
+#bash $HOME/Hadoop-Configurations/cdh-deployment.sh
