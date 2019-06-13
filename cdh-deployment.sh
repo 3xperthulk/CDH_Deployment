@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#sudo wget https://archive.cloudera.com/cm5/installer/latest/cloudera-manager-installer.bin
+#sudo wget https://archive.cloudera.com/cm6/6.2.0/cloudera-manager-installer.bin
 #sudo chmod a+x cloudera-manager-installer.bin
 #sudo ./cloudera-manager-installer.bin
 #sudo systemctl restart cloudera-scm-server
