@@ -33,12 +33,12 @@ sudo wget https://archive.cloudera.com/cm5/redhat/7/x86_64/cm/5.14/repodata/prim
 sudo wget https://archive.cloudera.com/cm5/redhat/7/x86_64/cm/5.14/repodata/repomd.xml
 sudo wget https://archive.cloudera.com/cm5/redhat/7/x86_64/cm/5.14/repodata/repomd.xml.asc
 
-RPM-KEY cloudera 
+#RPM-KEY cloudera 
 cd /var/www/html/CM5.14
 sudo wget https://archive.cloudera.com/cm5/redhat/7/x86_64/cm/RPM-GPG-KEY-cloudera
 
-Cloudera repo
-cd cd /etc/yum.repos.d/ 
+#Cloudera repo
+cd /etc/yum.repos.d/ 
 sudo wget https://archive.cloudera.com/cm5/redhat/7/x86_64/cm/cloudera-manager.repo
 
 #Parcel
